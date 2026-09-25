@@ -1,0 +1,6 @@
+interface:
+  display_name: "白板与系统理解"
+  short_description: "委托 Gemini 形成面向用户的系统理解，并按需生成临时 HTML 架构图"
+
+policy:
+  allow_implicit_invocation: false

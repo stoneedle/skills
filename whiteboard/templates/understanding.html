@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Architecture Whiteboard</title>
+<style>
+:root{color-scheme:light dark;--bg:#f4f1e8;--surface:#fffdf7;--text:#263538;--muted:#607074;--line:#9aaba6;--accent:#176b68;--impact:#a55324;--shadow:0 12px 35px #2338}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 system-ui,"Microsoft YaHei","PingFang SC",sans-serif}main{max-width:1180px;margin:auto;padding:2rem 1.25rem 3rem}header{display:flex;align-items:end;justify-content:space-between;gap:1rem;margin-bottom:1.5rem}h1{font-size:clamp(1.45rem,3vw,2.1rem);line-height:1.2;margin:0}.legend{color:var(--muted);font-size:.85rem}.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;align-items:stretch}.node{min-width:0;padding:1rem;border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:.65rem;background:var(--surface);box-shadow:var(--shadow)}.node h2{margin:0;font-size:1.02rem}.node p{margin:.45rem 0 0;color:var(--muted);font-size:.9rem}.edge{display:flex;align-items:center;justify-content:center;gap:.55rem;color:var(--accent);font-size:.86rem;text-align:center}.edge::after{content:"→";font-size:1.5rem}.impact{border-top-color:var(--impact)}[data-group]{transition:opacity .15s ease,transform .15s ease}[data-group].dim{opacity:.22}[data-group].active{transform:translateY(-2px)}@media(prefers-color-scheme:dark){:root{--bg:#172426;--surface:#213236;--text:#e6eeeb;--muted:#afc1bc;--line:#526864;--accent:#8ed0c5;--impact:#e0a375;--shadow:none}}@media(max-width:720px){header{align-items:start;flex-direction:column}.board{grid-template-columns:1fr}.edge{min-height:2.5rem;flex-direction:column}.edge::after{content:"↓"}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>一个值得可视化的关系</h1>
+    <div class="legend">点击节点可突出同组路径</div>
+  </header>
+  <section class="board" aria-label="架构关系图">
+    <article class="node" data-group="flow" tabindex="0"><h2>起点</h2><p>一句与关系有关的职责</p></article>
+    <div class="edge" data-group="flow"><span>带语义的交接</span></div>
+    <article class="node" data-group="flow" tabindex="0"><h2>结果</h2><p>一句与关系有关的职责</p></article>
+  </section>
+</main>
+<script>
+const grouped=[...document.querySelectorAll('[data-group]')];
+function focusGroup(group){grouped.forEach(el=>{el.classList.toggle('active',el.dataset.group===group);el.classList.toggle('dim',el.dataset.group!==group)})}
+function clearFocus(){grouped.forEach(el=>el.classList.remove('active','dim'))}
+document.addEventListener('click',event=>{const item=event.target.closest('[data-group]');item?focusGroup(item.dataset.group):clearFocus()});
+document.addEventListener('keydown',event=>{if((event.key==='Enter'||event.key===' ')&&event.target.matches('[data-group]')){event.preventDefault();focusGroup(event.target.dataset.group)}if(event.key==='Escape')clearFocus()});
+</script>
+</body>
+</html>

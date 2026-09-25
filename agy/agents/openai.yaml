@@ -1,0 +1,3 @@
+interface:
+  display_name: "agy · CLI 调用"
+  short_description: "封装 agy CLI 的提示输入、会话续接、结果解析与产物检查"
