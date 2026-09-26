@@ -1,0 +1,33 @@
+# ==============================================================================
+# Codex 技能精准禁用配置示例 (skills-disable.example.toml)
+# 
+# 用途：解决同名技能重复扫描进入上下文的问题（特别是同时存在根目录旧版和 private 新版时）。
+# 使用方法：将以下内容复制并追加到你的项目级配置 `<项目根目录>/.codex/config.toml` 
+#          或用户全局配置 `~/.codex/config.toml` 中。
+# 注意事项：修改后请重启 Codex，并新建会话验证技能列表。
+# ==============================================================================
+
+# 1. 禁用根目录旧版 hussar-auto-dict，保留 .agents/skills/private 中的同名新版
+[[skills.config]]
+path = "D:/workSpaces/jxd/xby/.agents/skills/hussar-auto-dict/SKILL.md"
+enabled = false
+
+# 2. 禁用根目录旧版 hussar-auto-flow，保留 .agents/skills/private 中的同名新版
+[[skills.config]]
+path = "D:/workSpaces/jxd/xby/.agents/skills/hussar-auto-flow/SKILL.md"
+enabled = false
+
+# 3. 禁用项目根目录旧版 hussar-auto-resource
+[[skills.config]]
+path = "D:/workSpaces/jxd/xby/.agents/skills/hussar-auto-resource/SKILL.md"
+enabled = false
+
+# 4. 禁用用户全局同名 hussar-auto-resource（防止覆盖本项目专属的工作流脚本）
+[[skills.config]]
+path = "C:/Users/stoneedle/.agents/skills/hussar-auto-resource/SKILL.md"
+enabled = false
+
+# 5. 禁用项目根目录旧版 lims-ui-docs，保留 private 版本
+[[skills.config]]
+path = "D:/workSpaces/jxd/xby/.agents/skills/lims-ui-docs/SKILL.md"
+enabled = false

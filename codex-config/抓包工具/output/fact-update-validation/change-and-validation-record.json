@@ -1,0 +1,62 @@
+{
+  "date": "2026-09-25",
+  "scope": "Fact corrections preserving original guide organization; no live routing or service changes",
+  "changed_files": [
+    "01-提示词配置与定制指南.md",
+    "02-请求剖析与Token消耗揭秘.md",
+    "03-技能系统机制与去重避坑.md",
+    "04-配置清空事故复盘与恢复指南.md",
+    "README.md",
+    "抓包工具/Codex与Claude-Tap旁路抓包实战指南.md",
+    "抓包工具/export_prompt_capture.py",
+    "抓包工具/README.md",
+    "抓包工具/verify_prompt_config.py",
+    "抓包工具/verify_prompt_wire.py",
+    "抓包工具/scripts/start-tap.ps1",
+    "抓包工具/scripts/start-tap.sh",
+    "抓包工具/scripts/stop-tap.ps1",
+    "抓包工具/scripts/stop-tap.sh",
+    "提示词配置与参考原文/config.template.toml",
+    "提示词配置与参考原文/README.md",
+    "提示词配置与参考原文/新旧提示词中英逐段对照表.md",
+    "提示词配置与参考原文/新旧提示词对比与选型建议.md"
+  ],
+  "added_files": [
+    "抓包工具/bridge/bridge.py",
+    "抓包工具/bridge/control.ps1",
+    "抓包工具/bridge/launch.py",
+    "抓包工具/bridge/route.py",
+    "抓包工具/bridge/source-manifest.json",
+    "抓包工具/bridge/test_bridge.py",
+    "抓包工具/evidence/capture-2026-09-25/developer-000-tools.json.md",
+    "抓包工具/evidence/capture-2026-09-25/developer-001-00-base.raw.md",
+    "抓包工具/evidence/capture-2026-09-25/developer-008-00-app-context.raw.md",
+    "抓包工具/evidence/capture-2026-09-25/developer-008-01-skills-catalog.raw.md",
+    "抓包工具/evidence/capture-2026-09-25/developer-008-02-permissions.raw.md",
+    "抓包工具/evidence/capture-2026-09-25/developer-008-03-collaboration-mode.raw.md",
+    "抓包工具/evidence/capture-2026-09-25/developer-009-00-multi-agent-role.raw.md",
+    "抓包工具/evidence/capture-2026-09-25/developer-010-00-multi-agent-mode.raw.md",
+    "抓包工具/evidence/capture-2026-09-25/developer-132-00-collaboration-mode.raw.md",
+    "抓包工具/evidence/capture-2026-09-25/developer-145-00-collaboration-mode.raw.md",
+    "抓包工具/evidence/capture-2026-09-25/manifest.json",
+    "抓包工具/evidence/capture-2026-09-25/system.md"
+  ],
+  "tests": {
+    "python_toml_syntax": "passed",
+    "powershell_bash_syntax": "passed; Bash not runtime tested",
+    "starter_stub": "passed args, egress preserved, exact env restore success/failure",
+    "wire_mechanisms": "passed base replacement and developer append; local mock HTTP400",
+    "prompt_render": "passed; base segment not exposed by debug command",
+    "read_only_export": "passed session 92b4e9cb-ebc1-4702-8bae-f45bb1748d06 record 10",
+    "bridge_local_tests": "passed isolated localhost and temporary DB; intentional storage failure log",
+    "original_prompt_files": "7 original/translation/base files unchanged byte-for-byte",
+    "bridge_source_hashes": "all 5 copied sources match manifest",
+    "documentation_links": "passed excluding embedded prompt examples"
+  },
+  "limits": [
+    "No clean-machine or reboot test",
+    "No macOS/Linux runtime test",
+    "Prompt mechanism checks use test overrides, not a user-specific customization acceptance test"
+  ],
+  "backup": "../codex-config-before-facts-20260925-152727.zip"
+}

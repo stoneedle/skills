@@ -1,0 +1,31 @@
+{
+  "binary": "C:\\Users\\stoneedle\\AppData\\Local\\OpenAI\\Codex\\bin\\d375f7df50d3b421\\codex.exe",
+  "config_sha256_before": "1f4aa80e3aa5abb2bb873110b24b32800a83484fab65ecb201775491c16130be",
+  "cases": [
+    {
+      "case": "默认无覆盖 (default)",
+      "exit_code": 0,
+      "base_marker_present": false,
+      "developer_marker_present": false
+    },
+    {
+      "case": "追加开发指令 (developer_instructions)",
+      "exit_code": 0,
+      "base_marker_present": false,
+      "developer_marker_present": true
+    },
+    {
+      "case": "替换基础指令 (model_instructions_file)",
+      "exit_code": 0,
+      "base_marker_present": false,
+      "developer_marker_present": false
+    }
+  ],
+  "live_config_unchanged": true,
+  "scope": "Config mechanism only; debug prompt-input does not render the base instructions. Use wire verification for that.",
+  "current_prompt_config": {
+    "model_instructions_file": null,
+    "developer_instructions": null,
+    "instructions": null
+  }
+}

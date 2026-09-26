@@ -1,0 +1,106 @@
+{
+  "session": "92b4e9cb-ebc1-4702-8bae-f45bb1748d06",
+  "record_index": 10,
+  "timestamp": "2026-09-25T03:10:54.448858+00:00",
+  "model": "gpt-6-astra",
+  "request_body_keys": [
+    "model",
+    "input",
+    "tool_choice",
+    "parallel_tool_calls",
+    "reasoning",
+    "store",
+    "stream",
+    "stream_options",
+    "include",
+    "prompt_cache_key",
+    "text",
+    "client_metadata",
+    "access_programs"
+  ],
+  "capture_boundary": "Codex -> local bridge -> Web GPT; before Web GPT upstream normalization",
+  "system_message_count": 0,
+  "instructions_present": false,
+  "parts": [
+    {
+      "file": "developer-000-tools.json.md",
+      "pointer": "request.body.input[0]",
+      "role": "developer",
+      "kind": "structured tools; JSON formatting added",
+      "chars": 83593,
+      "sha256": "c38057e43932354c3cc7b58e8a6a27c1177df7a86c6d1a0efd1b18bf190e321f"
+    },
+    {
+      "file": "developer-001-00-base.raw.md",
+      "pointer": "request.body.input[1].content[0].text",
+      "role": "developer",
+      "kind": "base",
+      "chars": 21420,
+      "sha256": "35bd51b5f577cb7b24cd5f4629e49e37cb724ab57754ce6f8f202001635bab8a"
+    },
+    {
+      "file": "developer-008-00-app-context.raw.md",
+      "pointer": "request.body.input[8].content[0].text",
+      "role": "developer",
+      "kind": "app-context",
+      "chars": 6064,
+      "sha256": "a844c876f39289b829612a0862180638f4fadb29030699ccf7bbf252256c458c"
+    },
+    {
+      "file": "developer-008-01-skills-catalog.raw.md",
+      "pointer": "request.body.input[8].content[1].text",
+      "role": "developer",
+      "kind": "skills-catalog",
+      "chars": 14315,
+      "sha256": "73dbb1544425b274d869646472fd074554edadb6033a6425f458daac271f6e30"
+    },
+    {
+      "file": "developer-008-02-permissions.raw.md",
+      "pointer": "request.body.input[8].content[2].text",
+      "role": "developer",
+      "kind": "permissions",
+      "chars": 363,
+      "sha256": "6317aae42a3a2f7a9df89482665e48f390469df8a89e555fde535fa5042f1e65"
+    },
+    {
+      "file": "developer-008-03-collaboration-mode.raw.md",
+      "pointer": "request.body.input[8].content[3].text",
+      "role": "developer",
+      "kind": "collaboration-mode",
+      "chars": 920,
+      "sha256": "bec8e7b5358a20b4cd552dae768b3a65ebf4ea9fb2645220085b84d60ee3fe81"
+    },
+    {
+      "file": "developer-009-00-multi-agent-role.raw.md",
+      "pointer": "request.body.input[9].content[0].text",
+      "role": "developer",
+      "kind": "multi-agent-role",
+      "chars": 2429,
+      "sha256": "47091490938505958b0c22ff42db6fd79b272a2af6923166f4c2cc53c4fe0df4"
+    },
+    {
+      "file": "developer-010-00-multi-agent-mode.raw.md",
+      "pointer": "request.body.input[10].content[0].text",
+      "role": "developer",
+      "kind": "multi-agent-mode",
+      "chars": 271,
+      "sha256": "6ded806e3cdbb35599ecaf8742574bc5274908472b1729090010c404c2151e8e"
+    },
+    {
+      "file": "developer-132-00-collaboration-mode.raw.md",
+      "pointer": "request.body.input[132].content[0].text",
+      "role": "developer",
+      "kind": "collaboration-mode",
+      "chars": 1328,
+      "sha256": "d4a43ed616564dc0173826b5cdc0b92261da2e33fd5b5ceeeefb9d7aa6fc3350"
+    },
+    {
+      "file": "developer-145-00-collaboration-mode.raw.md",
+      "pointer": "request.body.input[145].content[0].text",
+      "role": "developer",
+      "kind": "collaboration-mode",
+      "chars": 920,
+      "sha256": "bec8e7b5358a20b4cd552dae768b3a65ebf4ea9fb2645220085b84d60ee3fe81"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+# ==============================================================================
+# OpenAI Codex 配置文件模板 (config.template.toml)
+# 
+# 存放位置：~/.codex/config.toml (Windows 路径通常为 C:\Users\<用户名>\.codex\config.toml)
+# 语法规范：TOML 格式。
+# 
+# 按需合并示例，不整份覆盖已有配置。启用可选模块前先调整路径并确认依赖。
+# 顶层字段规则：
+# 1. 所有的顶层键值对（如 model、developer_instructions、model_instructions_file）
+#    必须写在文件最顶部，且【必须位于第一个 [xxx] 表之前】！
+# 2. 如果把顶层配置粘贴在文件末尾，会被误解析为最后一个子表的字段，导致配置彻底失效！
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. 模型与思考深度
+# ------------------------------------------------------------------------------
+# model = "gpt-6-astra"                     # 默认使用的主模型 (如 gpt-6-astra, gpt-5.6-sol 等)
+ # model_reasoning_effort = "low"            # 思考深度档位: low / medium / high / max
+ # service_tier = "default"                  # 服务档位
+ # model_verbosity = "high"                  # 输出详细程度: low / medium / high
+
+# ------------------------------------------------------------------------------
+# 2. 提示词定制 (二选一或结合使用)
+# ------------------------------------------------------------------------------
+
+# 【推荐方案】追加你的个人/团队开发规范 (追加在官方基础指令之后，保留官方底层工具规范，安全稳妥)
+developer_instructions = '''
+# 个人协作规范
+
+1. 表达偏好：
+   - 默认使用简体中文回复，语气专业、精炼，禁止废话套话。
+   - 结论先行：先给核心答复与操作方案，再按需展示技术原理。
+
+2. 任务自主推进：
+   - 针对低风险、可逆的日常任务（如改单测、修小 bug、局部重构），直接自主闭环完成，不要反复询问停顿。
+   - 涉及颠覆性架构变更、删除大量文件等高危操作时，先说明取舍并等待确认。
+
+3. 工程代码规范：
+   - 遵守深模块、窄接口设计原则，保护不相关代码不受污染。
+   - 坚持单一事实源（Single Source of Truth），Windows 环境下注意路径转义与 UTF-8 编码。
+'''
+
+# 【高级方案】整份替换官方基础指令 (覆盖官方约 2.1 万字符的 You are Codex... 整段)
+# 注意：若启用此项，必须指向基于官方基线修改的完整 Markdown，切勿只写两三句话！
+# model_instructions_file = "C:/your-config/prompts/model-instructions.custom.md"
+
+# ------------------------------------------------------------------------------
+# 3. 权限与安全沙箱 (决定命令执行是否频繁弹窗)
+# ------------------------------------------------------------------------------
+# sandbox_mode = "danger-full-access"       # 沙箱模式: danger-full-access / workspace-write / read-only
+# approval_policy = "never"                 # 审批策略: never (全自动推进) / untrusted / on-failure / auto
+
+# ------------------------------------------------------------------------------
+# 4. 本地代理与后端路由 (如果有本地 Web GPT 桥或特定反代)
+# ------------------------------------------------------------------------------
+# openai_base_url = "http://127.0.0.1:17842/v1"
+# experimental_realtime_webrtc_call_base_url = "https://chatgpt.com/backend-api/codex"
+
+# ------------------------------------------------------------------------------
+# 5. 桌面客户端偏好设置 [desktop]
+# ------------------------------------------------------------------------------
+# [desktop]
+# conversationDetailMode = "STEPS_COMMANDS" # 详细记录执行的步骤与命令行
+# ambient-suggestions-enabled = false       # 是否开启侧边气泡智能建议
+# show-context-window-usage = true          # 在界面显示当前上下文窗口使用百分比
+# defaultTerminalLocation = "bottom"        # 终端默认停靠位置: bottom / right
+# localeOverride = "zh-CN"                  # 界面语言强制为简体中文
+# keepRemoteControlAwakeWhilePluggedIn = true
+# git-branch-prefix = "feature/"            # 自动创建分支时推荐的前缀
+# enabled-reasoning-efforts = ["low", "medium", "high", "xhigh", "ultra", "max"]
+# show-ultra-in-model-picker-slider = false
+# followUpQueueMode = "steer"               # 输入框处理模式: steer (引导当前任务) / queue (排队)
+# selected-avatar-id = "custom:silksong-hornet"
+# worktree-keep-count = 2
+
+# [windows]
+# sandbox = "elevated"                      # Windows 沙箱提权支持: elevated / unelevated
+
+# ------------------------------------------------------------------------------
+# 6. MCP 外部工具扩展 [mcp_servers]
+# ------------------------------------------------------------------------------
+# 示例 1: DBHub 数据库管理 MCP
+# [mcp_servers.dbhub]
+# command = "dbhub"
+# args = ["--transport", "stdio", "--config", "D:\\workSpaces\\javaConfig\\mcp\\dbhub\\dbhub.toml"]
+
+# 示例 2: Context7 记忆检索 MCP
+# [mcp_servers.context7]
+# command = "npx"
+# args = ["-y", "@upstash/context7-mcp"]
+
+# ------------------------------------------------------------------------------
+# 7. 技能精准禁用 [[skills.config]] (解决同名技能重复加载)
+# ------------------------------------------------------------------------------
+# 禁用不需要的技能路径，释放上下文 Token 并避免同名冲突
+# [[skills.config]]
+# path = "D:/workSpaces/jxd/xby/.agents/skills/hussar-auto-dict/SKILL.md"
+# enabled = false
+
+# [[skills.config]]
+# path = "D:/workSpaces/jxd/xby/.agents/skills/hussar-auto-flow/SKILL.md"
+# enabled = false
+
+# [[skills.config]]
+# path = "D:/workSpaces/jxd/xby/.agents/skills/hussar-auto-resource/SKILL.md"
+# enabled = false

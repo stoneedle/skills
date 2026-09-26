@@ -1,0 +1,28 @@
+{
+  "live_config_unchanged": true,
+  "inference_performed": false,
+  "results": [
+    {
+      "case": "base_override",
+      "exit_code": 1,
+      "captured": true,
+      "found_markers": [
+        {
+          "path": "body.input[1].content[0].text",
+          "preview": "PROMPT_CONFIG_BASE_MARKER_WIRE_TEST"
+        }
+      ]
+    },
+    {
+      "case": "developer_append",
+      "exit_code": 1,
+      "captured": true,
+      "found_markers": [
+        {
+          "path": "body.input[2].content[0].text",
+          "preview": "PROMPT_CONFIG_DEVELOPER_MARKER_WIRE_TEST"
+        }
+      ]
+    }
+  ]
+}

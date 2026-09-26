@@ -1,0 +1,11 @@
+{
+  "source": "local verified codex-tap-bridge, 2026-09-25",
+  "platform": "Windows",
+  "files": {
+    "bridge.py": "1ddbd841acdfdbf415871082f0b994e5800b9725fd14fe1abf60d64284b01e41",
+    "launch.py": "3acb457cd3ce5654b0365e5235a62ac3e197927f988fd6adc386df7d231618fc",
+    "control.ps1": "61ccdc8b3966682c47b75f52d944fb016eefdd34068ac5aa671b010138b47edd",
+    "route.py": "5718a44d5c4d119e18f6bc2e0520c7d9258c83c6fde87107176cea2ebde9464e",
+    "test_bridge.py": "80538d209deedae894d97271aad54987e5a96b333e28b94813a2cecfef084582"
+  }
+}
